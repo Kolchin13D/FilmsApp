@@ -1,17 +1,21 @@
 package com.example.filmsapp.model;
 
+import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.library.baseAdapters.BR;
 
 import java.util.List;
 
 import javax.annotation.Generated;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -74,6 +78,22 @@ public class Movie extends BaseObservable implements Parcelable {
             return (new Movie[size]);
         }
     };
+
+
+    @BindingAdapter({"posterPath"})
+    public static void loadInage(ImageView imageView, String imageURL){
+
+        //  base image url
+        //  https://image.tmdb.org/t/p/original/[poster_path]  /r8Ph5MYXL04Qzu4QBbq2KjqwtkQ.jpg
+
+        String imagePath = "https:/image.tmdb.org/t/p/w500"+imageURL;
+
+        Glide.with(imageView.getContext())
+                .load(imagePath)
+                .into(imageView);
+
+    }
+
 
     @Bindable
     public Boolean getAdult() {

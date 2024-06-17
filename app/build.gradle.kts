@@ -52,4 +52,9 @@ dependencies {
     // javax
     implementation("javax.annotation:javax.annotation-api:1.3.2")
 
+    // swipe refresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+
+    // glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
